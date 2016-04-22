@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:14.04
 MAINTAINER Shu Chao<shuc324.gmail.com>
 
 # 163源
