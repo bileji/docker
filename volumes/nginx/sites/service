@@ -1,13 +1,14 @@
 server {
-    listen 80 default_server;
+    listen 80;
     server_name service.bileji.com;
     
     root /var/www/service/public;
+
     autoindex on;
     index index.html index.php;
     
     autoindex_exact_size off;
     autoindex_localtime on;
     
-    include includes/bileji;
+    include includes/laravel;
 }
