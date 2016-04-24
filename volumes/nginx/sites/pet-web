@@ -1,8 +1,8 @@
 server {
-    listen 8080;
-    server_name service.bileji.com;
+    listen 80;
+    server_name pet-web.bileji.com;
     
-    root /var/www/service/public;
+    root /var/www/pet-web/public;
 
     autoindex on;
     index index.html index.php;
