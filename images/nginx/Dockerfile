@@ -17,6 +17,6 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN mkdir /var/www /etc/nginx/includes
 RUN chown -R www-data:www-data /var/www
 
-EXPOSE 80 443 8080
+EXPOSE 80 443
 
 CMD nginx
