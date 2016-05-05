@@ -1,3 +1,6 @@
+location = /robots.ico {log_not_found off; access_log off;}
+location = /favicon.ico {log_not_found off; access_log off;}
+
 location / {
     try_files $uri $uri/ /index.php?$query_string;
 }
@@ -7,4 +10,16 @@ location ~ \.php$ {
     include fastcgi_params;
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     include fastcgi_params;
+}
+
+location ~ \.ht {
+    deny all;
+}
+
+location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ {
+    allow all;
+}
+
+location ~ .*\.(js|css|eot|svg|ttf|woff)?$ {
+    allow all;
 }

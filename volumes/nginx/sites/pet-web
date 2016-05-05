@@ -1,5 +1,6 @@
 server {
     listen 80;
+
     server_name pet-web.bileji.com;
     
     root /var/www/pet-web/public;
