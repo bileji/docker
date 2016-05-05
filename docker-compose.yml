@@ -47,19 +47,6 @@ mysql:
         MYSQL_ROOT_PASSWORD: 123456
         TZ: Asia/Shanghai
     restart: always
-# mongo:
-#     build: ./images/mongo
-#     container_name: blj_mongo
-#     ports:
-#         - "27017:27017"
-#     volumes:
-#         - ./volumes/mongo/log:/data/mongodb
-#     environment:
-#         MONGODB_DATABASE: admin
-#         MONGODB_USER: admin
-#         MONGODB_PASS: 123456
-#         TZ: Asia/Shanghai
-#    restart: always
 mongo:
     image: frodenas/mongodb
     container_name: blj_mongo
@@ -70,3 +57,15 @@ mongo:
         MONGODB_USERNAME: admin
         MONGODB_PASSWORD: 123456
         TZ: Asia/Shanghai
+# gitlab:
+#     build: ./images/gitlab
+#     container_name: blj_gitlab
+#     ports:
+#         - "2022:20"
+#         - "2080:80"
+#         - "2443:443"
+#     volumes:
+#         - ./volumes/gitlab/logs:/var/log/gitlab
+#         - ./volumes/gitlab/data:/var/opt/gitlab
+#         - ./volumes/gitlab/config:/etc/gitlab
+#     restart: always
