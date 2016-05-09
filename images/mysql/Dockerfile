@@ -2,11 +2,11 @@ FROM ubuntu:14.04
 MAINTAINER Shu Chao<shuc324.gmail.com>
 
 # aliyuncs源
-RUN echo "deb http://mirrors.aliyuncs.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list
-RUN echo "deb http://mirrors.aliyuncs.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list
-RUN echo "deb http://mirrors.aliyuncs.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list
-RUN echo "deb http://mirrors.aliyuncs.com/ubuntu/ trusty-proposed main restricted universe multiverse" >> /etc/apt/sources.list
-RUN echo "deb http://mirrors.aliyuncs.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list
+RUN echo "deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
 
 # 安装包
 ENV DEBIAN_FRONTEND noninteractive
@@ -18,14 +18,16 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN sed -Ei 's/^(bind-address)/#&/' /etc/mysql/my.cnf
 RUN { \
     echo '[mysqld]'; \
-        echo 'console=1'; \
-            echo 'general_log=1'; \
-                echo 'general_log_file=/dev/stdout'; \
-                    echo 'log_error=/dev/stderr'; \
+    echo 'console=1'; \
+    echo 'general_log=1'; \
+    echo 'general_log_file=/dev/stdout'; \
+    echo 'log_error=/dev/stderr'; \
 } > /etc/mysql/conf.d/my.cnf
 
 ADD run.sh /usr/local/bin/run.sh
 RUN chmod +x /usr/local/bin/run.sh
+
+VOLUME /var/lib/mysql
 
 EXPOSE 3306
 
