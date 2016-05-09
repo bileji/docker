@@ -1,6 +1,6 @@
 php:
     build: ./images/php
-    container_name: blj_php
+    container_name: php
     ports:
         - "9000:9000"
     volumes: 
@@ -12,7 +12,7 @@ php:
     restart: always
 nginx:
     build: ./images/nginx
-    container_name: blj_nginx
+    container_name: nginx
     links:
         - php
     ports:
@@ -26,11 +26,12 @@ nginx:
     environment:
         TZ: Asia/Shanghai
     extra_hosts:
+        - "pet.bileji.com:127.0.0.1"
         - "service.bileji.com:127.0.0.1"
     restart: always
 redis:
     build: ./images/redis
-    container_name: blj_redis
+    container_name: redis
     ports:
         - "6379:6379"
     volumes:
@@ -40,7 +41,7 @@ redis:
     restart: always
 mysql:
     build: ./images/mysql
-    container_name: blj_mysql
+    container_name: mysql
     ports:
         - "3306:3306"
     environment:
@@ -49,7 +50,7 @@ mysql:
     restart: always
 mongo:
     image: frodenas/mongodb
-    container_name: blj_mongo
+    container_name: mongo
     ports:
         - "27017:27017"
     environment:
@@ -59,7 +60,7 @@ mongo:
         TZ: Asia/Shanghai
 # gitlab:
 #     build: ./images/gitlab
-#     container_name: blj_gitlab
+#     container_name: gitlab
 #     ports:
 #         - "2022:20"
 #         - "2080:80"
