@@ -20,6 +20,6 @@ location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ {
     allow all;
 }
 
-location ~ .*\.(js|css|eot|svg|ttf|woff)?$ {
+location ~ .*\.(js|css|eot|svg|ttf|woff)$ {
     allow all;
 }
